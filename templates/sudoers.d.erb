@@ -1,0 +1,7 @@
+#This file is managed via puppet. Don't edit!
+<% [@user].flatten.each do |sudoer| -%>
+<%= sudoer %>    <%= [@host].flatten.join(', ') %> = (<%= [@runas].flatten.join(', ') %>)    <%= @tag %>: <%= [@command].flatten.join(', ') %>
+<% if !@defaults.nil? -%>
+Defaults:<%= sudoer %> <%= @defaults %>
+<% end -%>
+<% end -%>
